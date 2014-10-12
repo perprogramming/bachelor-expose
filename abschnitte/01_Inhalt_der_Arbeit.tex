@@ -1,21 +1,55 @@
 \section{Inhalt der Arbeit}
 
-\subsection{Problemstellung}
-
-Die Webseite Chefkoch.de basiert auf einer PHP-Anwendung, deren Entwicklung vor über 10 Jahren begann. Große Teile der Anwendung sind dabei ohne fundierte Kenntnisse in der Softwareentwicklung entstanden. Dies merkt man vor allem an einer fehlenden Systemarchitektur und einer unübersichtlichen und sehr redundanten Struktur der Daten. Der Wartungsaufwand und auch die benötigte Zeit für Neuentwicklungen sind entsprechend hoch. Die Herausforderung für das aktuelle Entwicklungsteam besteht also darin, neben dem Alltagsgeschäft auch grundlegende Moderniesierungen am System vorzunehmen. Da die Anwendung bislang auch keine Softwaretests zur Qualitätssicherung besitzt, ist es vor größeren Umbauarbeiten zunächst notwendig, die entsprechenden Bausteine über Funktionstests abzusichern. Auch hier fehlt es an einer entsprechenden Infrastruktur, vor allem auch im Bereich des Testdatenmanagements.
-
-\subsection{Zielsetzung}
-
-Ziel dieser Bachelor-Arbeit ist es, den Entwurf und die Implementierung von Werkzeugen zu erarbeiten, die aufgrund des aktuellen Stands der Forschung für das Testdatenmanagement der automatischen Funktionstests bei Chefkoch.de sinnvoll und notwendig sind.
-
-\subsection{Vorgehensweise}
-
-Nach der Einordnung automatischer Funktionstests als Teil üblicher Qualitätssicherungsmaßnahmen im Bereich des Softwareengineerings, wird zunächst die besondere Bedeutung des Testdatenmanagements betrachtet und verschiedene Strategien analysiert, die hierbei angewendet werden können. Hierbei geht es zum einen um das sogenannte Datensubsetting und zum anderen um die synthetische Testdatengenerierung. Anschließend werden konkrete Werkzeuge für die Integration des Testdatenmanagements in den Entwicklungsprozess bei Chefkoch.de entworfen und implementiert.
-
 \subsection{Unternehmensportrait}
+
+Diese Bachelorarbeit entsteht im Rahmen der Tätigkeit als Softwareentwickler bei der Firma Pixelhouse GmbH.
 
 Die Pixelhouse GmbH ist der Betreiber von Chefkoch.de, Europas größtem Kochportal. Neben der Vermarktung der Webseite und der Betreuung der Community mit rund 1,5 Millionen Benutzern wird vor allem auch die softwaretechnische Entwicklung der Plattform und deren Betrieb durch die Pixelhouse GmbH durchgeführt.
 
 Das Unternehmen wurde im Jahre 1998 als klassische Internetagentur gegründet. Nachdem sich der Betrieb der Seite Chefkoch.de als großer Erfolg erwies, ist sie heute das einzige Produkt des Unternehmens. Im Jahre 2008 wurde die Pixelhouse GmbH von Gruner + Jahr übernommen und ist inzwischen eine 100\%-tige Tochter des renommierten Medienhauses.
 
 Das Unternehmen beschäftigt ca. 40 Mitarbeiter in zwei Standorten in Bonn und Köln. Der Standort Köln betreibt vor allem die Entwicklung der mobilen Apps (iOS, Android) für Chefkoch.de, alle anderen Abteilungen befinden sich im Standort Bonn.
+
+\subsection{Problemstellung}
+
+Die Webseite Chefkoch.de basiert auf einer PHP-Anwendung, deren Entwicklung vor über 10 Jahren begann. Große Teile der Anwendung sind dabei ohne fundierte Kenntnisse in der Softwareentwicklung entstanden. Dies merkt man vor allem an einer fehlenden Systemarchitektur und einer unübersichtlichen und sehr redundanten Struktur der Daten.
+
+Auch die Infrastruktur der Chefkoch-Anwendung ist mit den Jahren sehr komplex geworden ist, vor allem auch, um die hohe Last von mehreren Millionen Besuchern täglich bedienen zu können. So werden Loadbalancer, mehrere Application-Server und diverse Persistenz-Dienste wie SQL-Datenbanken und Key-Value-Stores eingesetzt.
+
+Der Wartungsaufwand und auch die benötigte Zeit für Neuentwicklungen sind entsprechend hoch. Die Herausforderung für das aktuelle Entwicklungsteam besteht darin, neben dem Alltagsgeschäft und der Umsetzung neuer Produktideen auch grundlegende Modernisierungen am System vorzunehmen.
+
+Hierbei ist es Vorgabe des Managements, bestehende und neue Funktionen über automatisierte Tests abzusichern. Gerade bei bestehenden Funktionen kommen hierbei oft nur Systemtests in Frage, da die zugrundeliegende Software wenig modular aufgebaut ist und so kaum Unit- oder Integrationstests erlaubt.
+
+Diese Systemtests werden mit Hilfe des Testtools Behat implementiert, das die Webdriver-Schnittstelle dazu verwendet, echte Webbrowsern über die Seite laufen zu lassen, um die benötigten Funktionen abzutesten.
+
+Das größte Problem mit dieser Art von Systemtest ist, dass sie vergleichsweise langsam sind und bereits heute mehrere Stunden laufen. Dies bedeutet, dass man nach fertiger Implementierung einer neuen Funktion oder der Modernisierung einer bestehenden Komponente sehr lange auf das Testergebnis warten muss und so Zeit vergeht, bis sich die Änderung in den Hauptentzwicklungszweig integrieren oder sogar in Produktion nehmen lässt.
+
+Eine mögliche Lösung hierfür wäre es, mehrere Testumgebungen anzubieten, um das Ausführen der automatischen Systemtests parallelisieren zu können oder auch einfach manuelle Abnahmen durch das Produktmanagement zu unterstützen.
+
+Stand heute ist es allerdings sehr aufwändig, neue Testumgebungen aufzusetzen. Der entsprechende Prozess kann mitunter mehrere Tage dauern, da Softwareentwicklung und Betrieb hier wenig effizient zusammenarbeiten und viele Teilschritte manuell erfolgen.
+
+Die Testumgebungen sind außerdem meist wenig isoliert und laufen z.B. auf den gleichen Datenbankservern oder hinter dem gleichen Loadbalancer. So lassen sich Änderungen an diesen Infrasktruktur-Komponenten heute mitunter gar nicht testen.
+
+\subsection{Fragestellung}
+
+Fragestellung dieser Bachelor-Arbeit ist es, ob sich mit Hilfe von Virtualisierung Lösungen für die zuvor beschriebenen Probleme finden lassen. Damit soll nicht nur die Anwendung sondern auch deren Infrastruktur in einem konkreten Zustand nachgehalten und effizient aufgesetzt werden können, um so einfach und beliebig oft Testumgebungen anbieten zu können. Andere Lösungen, wie z.B. Änderungen an der Organisationsstruktur, dem Entwicklungsprozess, dem eigentlichen Programmcode oder der Infrasktruktur selbst sind nicht Teil der Fragestellung.
+
+\subsection{Zielsetzung}
+
+Ziel dieser Bachelorarbeit ist es demnach, die Lösbarkeit der gegebenen Problemstellung durch Virtualisierung zu belegen und wenn möglich eine konkrete, bewertbare Lösung zu konzipieren und zu implementieren.
+
+\subsection{Theoriebezug}
+
+Der hohe Zeitaufwand für das Aufsetzen neuer Testumgebungen und das Durchführen der Systemtests widersprechen schon lange etablierten Softwareentwicklungsmethodiken wie Continuous Integration und Continuous Delivery. Diese zielen darauf ab, kurze Feedbackschleifen für Entwickler und Produktmanager zu ermöglichen, in dem sich neue Versionen der Software kurzfristig mit denen anderer Entwickler integriert lassen und ebenso kurzfristig in Produktion genommen werden können, um so auch Feedback von echten Benutzern zu erhalten.
+
+Die Tatsache, dass sich bestimmte Infrastrukturkomponenten gar nicht testen lassen und dass die Zusammenarbeit zwischen Entwicklern und Betrieb hier wenig effizient erfolgt, werden von der Wissenschaft heute bereits mit der DevOps Bewegung beantwortet.
+
+Wie konkrete Virtualisierungsansätze, z.B. die Verwendung von Containern, hier effizient Abhilfe schaffen kann, ist dabei allerdings weniger umfangreich beleuchtet.
+
+\subsection{Vorgehensweise}
+
+Nach der theoretischen Erarbeitung der relevanten Softwareentwicklungsmethodiken und verschiedener technischer Lösungen zur Virtualisierung werden für die beschriebenen Probleme zunächst konkrete, messbare Kriterien erarbeitet. Ein solches Kriterium könnte z.B. die Ausführungsdauer der Systemtests sein. Anschließend wird eine konkrete technische Lösung konzipiert, implementiert und dann anhand der Kriterien evaluiert.
+
+\subsection{Evaluationsstrategie}
+
+Da sich für die zuvor beschriebenen Probleme gut Kriterien finden lassen, die absolut messbar sind oder sich einfach mit ja oder nein beantworten lassen, kann eine Evaluation dadurch erfolgen, die einzelnen Messwerte / Kriterien für das bisherige System und die neue technische Lösung miteinander zu vergleichen. Je mehr Messwerte sich verbessern oder je mehr Probleme sich beantworten lassen, umso positiver kann die erarbeitete Lösung bewertet werden.
