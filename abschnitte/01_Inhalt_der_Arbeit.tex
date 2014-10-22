@@ -1,20 +1,12 @@
 \section{Inhalt der Arbeit}
 
-\subsection{Unternehmensportrait}
-
-Diese Bachelorarbeit entsteht im Rahmen der Tätigkeit als Softwareentwickler bei der Firma Pixelhouse GmbH.
-
-Die Pixelhouse GmbH ist der Betreiber von Chefkoch.de, Europas größtem Kochportal. Neben der Vermarktung der Webseite und der Betreuung der Community mit rund 1,5 Millionen Benutzern wird vor allem auch die softwaretechnische Entwicklung der Plattform und deren Betrieb durch die Pixelhouse GmbH durchgeführt.
-
-Das Unternehmen wurde im Jahre 1998 als klassische Internetagentur gegründet. Nachdem sich der Betrieb der Seite Chefkoch.de als großer Erfolg erwies, ist sie heute das einzige Produkt des Unternehmens. Im Jahre 2008 wurde die Pixelhouse GmbH von Gruner + Jahr übernommen und ist inzwischen eine 100\%-tige Tochter des renommierten Medienhauses.
-
-Das Unternehmen beschäftigt ca. 40 Mitarbeiter in zwei Standorten in Bonn und Köln. Der Standort Köln betreibt vor allem die Entwicklung der mobilen Apps (iOS, Android) für Chefkoch.de, alle anderen Abteilungen befinden sich im Standort Bonn.
-
 \subsection{Problemstellung}
 
-Die Webseite Chefkoch.de basiert auf einer PHP-Anwendung, deren Entwicklung vor über 10 Jahren begann. Große Teile der Anwendung sind dabei ohne fundierte Kenntnisse in der Softwareentwicklung entstanden. Dies merkt man vor allem an einer fehlenden Systemarchitektur und einer unübersichtlichen und sehr redundanten Struktur der Daten.
+Diese Bachelorarbeit entsteht im Rahmen der Tätigkeit als Softwareentwickler bei der Pixelhouse GmbH. Diese betreibt seit ca. 10 Jahren die Webseite Chefkoch.de, Europas größtes Kochportal. Neben der Vermarktung der Webseite und der Betreuung der Community wird von den Mitarbeitern vor allem auch die softwaretechnische Entwicklung der Plattform und das Hosting durchgeführt.
 
-Auch die Infrastruktur der Chefkoch-Anwendung ist mit den Jahren sehr komplex geworden ist, vor allem auch, um die hohe Last von mehreren Millionen Besuchern täglich bedienen zu können. So werden Loadbalancer, mehrere Application-Server und diverse Persistenz-Dienste wie SQL-Datenbanken und Key-Value-Stores eingesetzt.
+Die Webseite Chefkoch.de basiert auf einer seit Beginn des Projektes stetig wachsenden PHP-Anwendung. Große Teile der Anwendung sind dabei ohne fundierte Kenntnisse in der Softwareentwicklung entstanden. Dies merkt man vor allem an einer fehlenden Systemarchitektur und einer unübersichtlichen und sehr redundanten Struktur der Daten.
+
+Auch die auf Linux/Ubuntu-Systemen basierende Infrastruktur der Chefkoch-Anwendung ist mit den Jahren sehr komplex geworden ist, vor allem auch, um die hohe Last von mehreren Millionen Besuchern täglich bedienen zu können. So werden Loadbalancer, mehrere Application-Server und diverse Persistenz-Dienste wie SQL-Datenbanken und Key-Value-Stores eingesetzt.
 
 Der Wartungsaufwand und auch die benötigte Zeit für Neuentwicklungen sind entsprechend hoch. Die Herausforderung für das aktuelle Entwicklungsteam besteht darin, neben dem Alltagsgeschäft und der Umsetzung neuer Produktideen auch grundlegende Modernisierungen am System vorzunehmen.
 
@@ -32,11 +24,11 @@ Die Testumgebungen sind außerdem meist wenig isoliert und laufen z.B. auf den g
 
 \subsection{Fragestellung}
 
-Fragestellung dieser Bachelor-Arbeit ist es, ob sich mit Hilfe von Virtualisierung Lösungen für die zuvor beschriebenen Probleme finden lassen. Damit soll nicht nur die Anwendung sondern auch deren Infrastruktur in einem konkreten Zustand nachgehalten und effizient aufgesetzt werden können, um so einfach und beliebig oft Testumgebungen anbieten zu können. Andere Lösungen, wie z.B. Änderungen an der Organisationsstruktur, dem Entwicklungsprozess, dem eigentlichen Programmcode oder der Infrasktruktur selbst sind nicht Teil der Fragestellung.
+Virtualisierungstechniken im Allgemeinen erlauben die einfache Replikation von Systemumgebungen, sind also ein möglicher Kandidat, um solche Problemstellungen auf technischer Ebene zu lösen. Dabei gibt es unterschiedliche Ansätze der Virtualisierung, die sich in ihrer Funktionalität, aber auch in ihrer Leistung und ihrem Verwaltungsaufwand unterscheiden. Andere Lösungen, wie z.B. Änderungen an der Organisationsstruktur, dem Entwicklungsprozess, dem eigentlichen Programmcode oder der Infrasktruktur selbst sind nicht Teil der Fragestellung.
 
 \subsection{Zielsetzung}
 
-Ziel dieser Bachelorarbeit ist es demnach, die Lösbarkeit der gegebenen Problemstellung durch Virtualisierung zu belegen und wenn möglich eine konkrete, bewertbare Lösung zu konzipieren und zu implementieren.
+Ziel dieser Bachelorarbeit ist es zu untersuchen, ob man mit Hilfe von Virtualisierungstechniken eine Lösung für das oben beschrieben Problem finden kann. Mit dieser Lösung soll nicht nur die Anwendung sondern auch deren Infrastruktur in einem konkreten Zustand nachgehalten und effizient aufgesetzt werden können, um so einfach und beliebig oft Testumgebungen anbieten zu können. Neben der konzeptionellen Arbeit soll auch eine prototypische Umsetzung und nachfolgende Bewertung erfolgen.
 
 \subsection{Theoriebezug}
 
@@ -48,8 +40,8 @@ Wie konkrete Virtualisierungsansätze, z.B. die Verwendung von Containern, hier 
 
 \subsection{Vorgehensweise}
 
-Nach der theoretischen Erarbeitung der relevanten Softwareentwicklungsmethodiken und verschiedener technischer Lösungen zur Virtualisierung werden für die beschriebenen Probleme zunächst konkrete, messbare Kriterien erarbeitet. Ein solches Kriterium könnte z.B. die Ausführungsdauer der Systemtests sein. Anschließend wird eine konkrete technische Lösung konzipiert, implementiert und dann anhand der Kriterien evaluiert.
+Diese Bachelorarbeit soll zunächst einen Überblick über relevante Softwareentwicklungsmethodiken und die für diese Problemstellung relevanten Virtualisierungsansätze geben und diese in Hinsicht auf die Problemstellung bewerten. Basierend auf zwei ausgesuchten Ansätzen soll jeweils ein Konzept zur Realisierung für die konkrete Problemstellung angegeben und prototypisch umgesetzt werden. Nachfolgend sollen die Implementierungen evaluiert werden.
 
 \subsection{Evaluationsstrategie}
 
-Da sich für die zuvor beschriebenen Probleme gut Kriterien finden lassen, die absolut messbar sind oder sich einfach mit ja oder nein beantworten lassen, kann eine Evaluation dadurch erfolgen, die einzelnen Messwerte / Kriterien für das bisherige System und die neue technische Lösung miteinander zu vergleichen. Je mehr Messwerte sich verbessern oder je mehr Probleme sich beantworten lassen, umso positiver kann die erarbeitete Lösung bewertet werden.
+Anhand der Problemstellung lassen sich Kriterien finden und gewichten, mit deren Hilfe sich die prototypisch umgesetzten Lösungen bewerten lassen. Ein wichtiges Kriterium ist auf jeden Fall die Reduzierung der Gesamtausführungsdauer der Tests aber z.B. auch die einfache Verwendbarkeit der Lösung. Andere Kriterien wie z.B. monetäre Kosten oder die Virtualisierbarkeit anderer Umgebungen (Windows, MacOS) fallen hingegen weniger ins Gewicht.
