@@ -2,7 +2,7 @@
 
 \subsection{Problemstellung}
 
-Diese Bachelorarbeit entsteht im Rahmen der Tätigkeit als Softwareentwickler bei der Pixelhouse GmbH. Diese betreibt seit ca. 10 Jahren die Webseite Chefkoch.de, Europas größtes Kochportal. Neben der Vermarktung der Webseite und der Betreuung der Community wird von den Mitarbeitern vor allem auch die softwaretechnische Entwicklung der Plattform und das Hosting durchgeführt.
+Diese Bachelorarbeit entsteht in Zusammenarbeit mit der Pixelhouse GmbH. Diese betreibt seit ca. 10 Jahren die Webseite Chefkoch.de, Europas größtes Kochportal. Neben der Vermarktung der Webseite und der Betreuung der Community wird von den Mitarbeitern vor allem auch die softwaretechnische Entwicklung der Plattform und das Hosting durchgeführt.
 
 Die Webseite Chefkoch.de basiert auf einer seit Beginn des Projektes stetig wachsenden PHP-Anwendung. Große Teile der Anwendung sind dabei ohne fundierte Kenntnisse in der Softwareentwicklung entstanden. Dies merkt man vor allem an einer fehlenden Systemarchitektur und einer unübersichtlichen und sehr redundanten Struktur der Daten.
 
@@ -24,7 +24,7 @@ Die Testumgebungen sind außerdem meist wenig isoliert und laufen z.B. auf den g
 
 \subsection{Fragestellung}
 
-Virtualisierungstechniken im Allgemeinen erlauben die einfache Replikation von Systemumgebungen, sind also ein möglicher Kandidat, um solche Problemstellungen auf technischer Ebene zu lösen. Dabei gibt es unterschiedliche Ansätze der Virtualisierung, die sich in ihrer Funktionalität, aber auch in ihrer Leistung und ihrem Verwaltungsaufwand unterscheiden. Andere Lösungen, wie z.B. Änderungen an der Organisationsstruktur, dem Entwicklungsprozess, dem eigentlichen Programmcode oder der Infrasktruktur selbst sind nicht Teil der Fragestellung.
+Virtualisierungstechniken im Allgemeinen erlauben die einfache Replikation von Systemumgebungen, sind also ein möglicher Kandidat, um solche Problemstellungen auf technischer Ebene zu lösen. Dabei gibt es unterschiedliche Ansätze der Virtualisierung, die sich in ihrer Funktionalität, aber auch in ihrer Leistung und ihrem Verwaltungsaufwand unterscheiden. Hier wäre also die Frage, ob durch Anwendung solcher Virtualisierungstechniken die Gesamttestzeit für dieses Problemszenario reduziert werden kann. Ebenso sind damit verbundene Fragen, ob es (prinzipielle) Unterschiede in Eignung, Aufwand und anfallender Testzeit zwischen den verschiedenen Techniken in Hinsicht auf die Problemstellung gibt. Andere Lösungen, wie z.B. Änderungen an der Organisationsstruktur, dem Entwicklungsprozess, dem eigentlichen Programmcode oder der Infrasktruktur selbst sind nicht Teil der Fragestellung.
 
 \subsection{Zielsetzung}
 
@@ -40,8 +40,8 @@ Wie konkrete Virtualisierungsansätze, z.B. die Verwendung von Containern, hier 
 
 \subsection{Vorgehensweise}
 
-Diese Bachelorarbeit soll zunächst einen Überblick über relevante Softwareentwicklungsmethodiken und die für diese Problemstellung relevanten Virtualisierungsansätze geben und diese in Hinsicht auf die Problemstellung bewerten. Basierend auf zwei ausgesuchten Ansätzen soll jeweils ein Konzept zur Realisierung für die konkrete Problemstellung angegeben und prototypisch umgesetzt werden. Nachfolgend sollen die Implementierungen evaluiert werden.
+Diese Bachelorarbeit soll einen Überblick über die für diese Problemstellung relevanten Virtualisierungsansätze geben und diese in Hinsicht auf die Problemstellung bewerten. Basierend auf zwei ausgesuchten Ansätzen soll jeweils ein Konzept zur Realisierung für die konkrete Problemstellung angegeben und prototypisch umgesetzt werden. Nachfolgend sollen die Implementierungen evaluiert werden.
 
 \subsection{Evaluationsstrategie}
 
-Anhand der Problemstellung lassen sich Kriterien finden und gewichten, mit deren Hilfe sich die prototypisch umgesetzten Lösungen bewerten lassen. Ein wichtiges Kriterium ist auf jeden Fall die Reduzierung der Gesamtausführungsdauer der Tests aber z.B. auch die einfache Verwendbarkeit der Lösung. Andere Kriterien wie z.B. monetäre Kosten oder die Virtualisierbarkeit anderer Umgebungen (Windows, MacOS) fallen hingegen weniger ins Gewicht.
+Im Rahmen der Arbeit sollen Bewertungskriterien definiert und die gefundenen Lösungen dahin gehend evaluiert werden. Ein wichtiges Kriterium ist auf jeden Fall die Reduzierung der Gesamtausführungsdauer der Tests aber z.B. auch die einfache Verwendbarkeit der Lösung. Andere Kriterien wie z.B. monetäre Kosten oder die Virtualisierbarkeit anderer Umgebungen (Windows, MacOS) fallen hingegen weniger ins Gewicht.
